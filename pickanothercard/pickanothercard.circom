@@ -4,7 +4,7 @@ include "../circomlib/mimcsponge.circom";
 include "../circomlib/comparators.circom";
 
 // commit to a card with the same suit as a previous card but not the same number
-// 0-11 numbers
+// 0-12 numbers
 // 0-3 suites
 // 52 cards total
 template PickAnotherCard() {
@@ -24,7 +24,7 @@ template PickAnotherCard() {
     component comparers[12];
     component comparersPrev[12];
 
-    // first verify its not the same card again
+    // first verify it is not the same card again
     component ie = IsEqual();
     ie.in[0] <== argHash;
     ie.in[1] <== prevArgHash;
