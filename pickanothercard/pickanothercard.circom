@@ -20,9 +20,9 @@ template PickAnotherCard() {
     signal input password;
     signal suitWithPassword;
     
-    component hashers[12];
-    component comparers[12];
-    component comparersPrev[12];
+    component hashers[13];
+    component comparers[13];
+    component comparersPrev[13];
 
     // first verify it is not the same card again
     component ie = IsEqual();
@@ -43,7 +43,7 @@ template PickAnotherCard() {
 
     // iterate through all the posible numbers for this suit
     // verify if exactly one of then is equal to prevArgHash and one of them is equal to argHash (we previously verified they are not the same)
-    for(var i = 0; i < 12; i++) {
+    for(var i = 0; i < 13; i++) {
         hashers[i] = MiMCSponge(2,220,1);
         hashers[i].k <== 0;
         hashers[i].ins[0] <== suitWithPassword;
